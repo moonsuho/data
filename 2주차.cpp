@@ -62,22 +62,28 @@ public:
 				coef[i + (degree - b.degree)] -= b.coef[i];
 		}
 		else {
+			b.negate();
 			*this = b;
 			for (int i = 0; i <= a.degree; i++)
-				coef[i + (degree - a.degree)] -= a.coef[i];
+				coef[i + (degree - a.degree)] += a.coef[i];
 		}
 		void trim();
 	}
 	void mult(Polynomial a, Polynomial b) {
+		int mul[MAX_DEGREE];
+		for (int i = 0; i <= MAX_DEGREE; i++)
+			mul[i] = 0; 
 		if (a.degree > b.degree) {
 			*this = a;
-			for (int i = 0; i <= b.degree; i++)
-				coef[i + (degree - b.degree)] *= b.coef[i];
+			for (int i = 0; i <= a.degree; i++)
+				for (int j = 0; j <= b.degree; j++)
+					mul[i + j] += coef[i + (degree - b.degree)] * b.coef[j];
 		}
 		else {
 			*this = b;
-			for (int i = 0; i <= a.degree; i++)
-				coef[i + (degree - a.degree)] *= a.coef[i];
+			for (int i = 0; i <= b.degree; i++)
+				for (int j = 0; j <= a.degree; j++)
+					mul[i + j] += coef[i + (degree - a.degree)] * a.coef[j];
 		}
 		void trim();
 	}

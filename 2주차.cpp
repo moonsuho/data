@@ -8,9 +8,9 @@ public:
 	Polynomial() { degree = 0; }
 
 	void read() {
-		printf("´ÙÇ×½ÄÀÇ ÃÖ°íÂ÷¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À: ");
+		printf("ë‹¤í•­ì‹ì˜ ìµœê³ ì°¨ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤: ");
 		scanf_s("%d", &degree);
-		printf("°¢ Ç×ÀÇ °è¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À (ÃÑ %d°³):", degree + 1);
+		printf("ê° í•­ì˜ ê³„ìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ (ì´ %dê°œ):", degree + 1);
 		for (int i = 0; i <= degree; i++)
 			scanf_s("%f", coef + i);
 
